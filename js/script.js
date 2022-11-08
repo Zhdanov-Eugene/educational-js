@@ -29,22 +29,38 @@
     }
 
 Проверить, чтобы все работало без ошибок в консоли */
+/////////////////////////////////////////////////////////////task1
+// const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+// const personalMovieDB = {
+//   count: numberOfFilms,
+//   movies: {},
+//   actors: {},
+//   genres: [],
+//   privat: false,
+// };
 
-const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-const personalMovieDB = {
-  count: numberOfFilms,
-  movies: {},
-  actors: {},
-  genres: [],
-  privat: false,
-};
+// const a = prompt("Один из последних просмотренных фильмов?", ""),
+//   b = prompt("На сколько оцените его?", ""),
+//   c = prompt("Один из последних просмотренных фильмов?", ""),
+//   d = prompt("На сколько оцените его?", "");
 
-const a = prompt("Один из последних просмотренных фильмов?", ""),
-  b = prompt("На сколько оцените его?", ""),
-  c = prompt("Один из последних просмотренных фильмов?", ""),
-  d = prompt("На сколько оцените его?", "");
+// personalMovieDB.movies[a] = b;
+// personalMovieDB.movies[c] = d;
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+// console.log(personalMovieDB);
 
-console.log(personalMovieDB);
+///////////////////////////////////////////////////выбор темы
+// var select = document.querySelector("select");
+// var html = document.querySelector("html");
+// document.body.style.padding = "10px";
+
+// function update(bgColor, textColor) {
+//   html.style.backgroundColor = bgColor;
+//   html.style.color = textColor;
+// }
+
+// select.onchange = function () {
+//   select.value === "black"
+//     ? update("black", "white")
+//     : update("white", "black");
+// };
