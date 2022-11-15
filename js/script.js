@@ -136,16 +136,29 @@ const personalMovieDB = {
   privat: false,
 };
 
-const length = 2;
-let result = "";
-for (let i = 0; i < length; i++) {
-  for (let a = 1; a < length; a++) {
-    result = prompt("Один из последних просмотренных фильмов?", "");
-    console.log(a);
-    for (let b = 1; b < length; b++) {
-      result = prompt("На сколько оцените его?", "");
-      console.log(b);
-    }
+// const length = 2;
+// let result = "";
+// for (let i = 0; i < length; i++) {
+//   for (let a = 1; a < length; a++) {
+//     result = prompt("Один из последних просмотренных фильмов?", "");
+//     console.log(a);
+//     for (let b = 1; b < length; b++) {
+//       result = prompt("На сколько оцените его?", "");
+//       console.log(b);
+//     }
+//   }
+// }
+
+for (let i = 0; i < 2; i++) {
+  const a = prompt("Один из последних просмотренных фильмов?", ""),
+    b = prompt("На сколько оцените его?", "");
+
+  if (a != null && b != null && a != "" && b != "" && a.length < 50) {
+    personalMovieDB.movies[a] = b;
+    console.log("done");
+  } else {
+    console.log("error");
+    i--;
   }
 }
 
@@ -158,3 +171,4 @@ if (personalMovieDB.count < 10) {
 } else {
   console.log("Произошла ошибка");
 }
+console.log(personalMovieDB);
