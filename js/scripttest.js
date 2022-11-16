@@ -1,3 +1,4 @@
+"use strict";
 /* 1 Задание на урок: */
 // document.getElementById("demo").innerHTML = "Hello JavaScript!";
 // console.log(1);
@@ -69,3 +70,25 @@
 // if ((hamburger && cola) || (fries === 3 && nuggets)) {
 //   console.log("Done!");
 // } //false
+//методами объекта
+const myCar = {
+  make: "Ford",
+  model: "Mustang",
+  year: 1969,
+  color: {
+    wheels: "white",
+    body: "grey",
+  },
+  makeTest: function () {
+    console.log("Test");
+  },
+};
+myCar.makeTest();
+//console.log(Object.keys(myCar.color).length);
+//console.log(Object.create(myCar.engine));
+// console.log(Object.getOwnPropertyNames(myCar));
+const { wheels, body } = myCar.color;
+console.log(wheels);
+
+// В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку.
+// Если он это сделал - возвращать его к этому же вопросу.
