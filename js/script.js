@@ -217,22 +217,23 @@ P.S. Функции вызывать не обязательно */
 
 let numberOfFilms;
 
-function start() {
-  numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-
-  while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
-    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-  }
-}
-
-start();
-
 const personalMovieDB = {
   count: numberOfFilms,
   movies: {},
   actors: {},
   genres: [],
   privat: false,
+  start: function () {
+    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+
+    while (
+      numberOfFilms == "" ||
+      numberOfFilms == null ||
+      isNaN(numberOfFilms)
+    ) {
+      numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+    }
+  },
   rememberMyFilms: function () {
     for (let i = 0; i < 2; i++) {
       const a = prompt("Один из последних просмотренных фильмов?", "").trim(),
@@ -263,29 +264,55 @@ const personalMovieDB = {
       console.log(personalMovieDB);
     }
   },
+  // writeYourGenres: function () {
+  //   for (let i = 1; i <= 3; i++) {
+  //     personalMovieDB.genres[i - 1] = prompt(
+  //       `Ваш любимый жанр под номером ${i}`
+  //     ).trim();
+  //   }
+  //   personalMovieDB.genres.forEach(function (arr) {
+  //     console.log(`Любимый жанр ${arr}`);
+  //   });
+  // },
   writeYourGenres: function () {
-    for (let i = 1; i <= 3; i++) {
-      personalMovieDB.genres[i - 1] = prompt(
-        `Ваш любимый жанр под номером ${i}`
-      ).trim();
+    for (let i = 1; i < 2; i++) {
+      let genre = prompt(`Ваш любимый жанр под номером ${i}`);
+
+      if (genre === "" || genre == null) {
+        console.log("Вы ввели некорректные данные или не ввели их вовсе");
+        i--;
+      } else {
+        personalMovieDB.genres[i - 1] = genre;
+      }
+
+      // Альтернативный вариант из урока
+
+      // let genres = prompt(`Введите ваши любимые жанры через запятую`).toLowerCase();
+
+      // if (genres === '' || genres == null) {
+      //     console.log('Вы ввели некорректные данные или не ввели их вовсе');
+      //     i--;
+      // } else {
+      //     personalMovieDB.genres = genres.split(', ');
+      //     personalMovieDB.genres.sort();
+      // }
     }
-    personalMovieDB.genres.forEach(function (arr) {
-      console.log(`Любимый жанр ${arr}`);
+
+    personalMovieDB.genres.forEach((item, i) => {
+      console.log(`Любимый жанр ${i + 1} - это ${item}`);
     });
   },
   toggleVisibleMyDB: function () {
-    if (personalMovieDB.privat == false) {
-      personalMovieDB.privat = true;
-    } else if (personalMovieDB.privat == true) {
+    if (personalMovieDB.privat) {
       personalMovieDB.privat = false;
     } else {
-      console.log("oops");
+      personalMovieDB.privat = true;
     }
   },
 };
-
-// personalMovieDB.rememberMyFilms();
-// personalMovieDB.detectPersonalLevel();
+personalMovieDB.start();
+personalMovieDB.rememberMyFilms();
+personalMovieDB.detectPersonalLevel();
 personalMovieDB.showMyDB(personalMovieDB.privat);
 personalMovieDB.writeYourGenres();
 personalMovieDB.toggleVisibleMyDB();

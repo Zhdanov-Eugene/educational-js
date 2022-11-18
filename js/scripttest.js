@@ -71,24 +71,103 @@
 //   console.log("Done!");
 // } //false
 //методами объекта
-const myCar = {
-  make: "Ford",
-  model: "Mustang",
-  year: 1969,
-  color: {
-    wheels: "white",
-    body: "grey",
-  },
-  makeTest: function () {
-    console.log("Test");
-  },
-};
-myCar.makeTest();
+// const myCar = {
+//   make: "Ford",
+//   model: "Mustang",
+//   year: 1969,
+//   color: {
+//     wheels: "white",
+//     body: "grey",
+//   },
+//   makeTest: function () {
+//     console.log("Test");
+//   },
+// };
+// myCar.makeTest();
 //console.log(Object.keys(myCar.color).length);
 //console.log(Object.create(myCar.engine));
 // console.log(Object.getOwnPropertyNames(myCar));
-const { wheels, body } = myCar.color;
-console.log(wheels);
+// const { wheels, body } = myCar.color;
+// console.log(wheels);
+// let a = 5,
+//   b = a;
+// b = b + 5;
+// console.log(b);
+// console.log(a);
 
-// В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку.
-// Если он это сделал - возвращать его к этому же вопросу.
+// const obj = {
+//   a: 5,
+//   b: 1,
+// };
+// const copy = obj; //link
+// copy.a = 10;
+// console.log(copy);
+// console.log(obj);
+
+function copy(mainObj) {
+  let objCopy = {};
+  let key;
+  for (key in mainObj) {
+    objCopy[key] = mainObj[key];
+  }
+  return objCopy;
+}
+
+const numbers = {
+  a: 2,
+  b: 5,
+  c: {
+    x: 7,
+    y: 4,
+  },
+};
+
+const newNumbers = copy(numbers);
+newNumbers.a = 10;
+newNumbers.c.x = 10;
+
+console.log(newNumbers);
+console.log(numbers);
+
+const add = {
+  d: 17,
+  i: 20,
+};
+
+//console.log(Object.assign(numbers, add));
+const clone = Object.assign({}, add);
+clone.d = 20;
+
+// console.log(add);
+// console.log(clone);
+
+const oldArray = ["a", "b", "c"];
+const neqArray = oldArray.slice();
+neqArray[1] = "mkgrwgrg";
+
+console.log(oldArray);
+console.log(neqArray);
+
+const video = ["youtube", "vimeo", "rutube"],
+  blogs = ["wordpress", "livejornal", "blogger"],
+  internet = [..."vimeo", ..."blogs", "vk", "facebook"];
+
+console.log(internet);
+
+function log(a, b, c) {
+  console.log(a);
+  console.log(b);
+  console.log(c);
+}
+const num = [2, 5, 7];
+
+log(...num);
+
+const array = ["a", "b"];
+const newArray = [...array];
+const q = {
+  one: 1,
+  two: 2,
+};
+
+const newObj = { ...q };
