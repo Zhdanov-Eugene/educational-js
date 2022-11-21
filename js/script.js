@@ -334,3 +334,56 @@ P.S. Здесь есть несколько вариантов решения з
 "Добавляем любимый фильм"
 5) 
 Фильмы должны быть отсортированы по алфавиту */
+/**************DOM******************/
+// const box = document.getElementById("box");
+// console.log(box);
+// //tag
+// const btns = document.getElementsByTagName("button");
+// console.log(btns);
+// const btn = document.getElementsByTagName("button")[1];
+// console.log(btn);
+// const butn = document.getElementsByTagName("button");
+// console.log(butn[1]);
+// const adrs = document.getElementsByTagName("address");
+// console.log(adrs);
+
+// //class
+// const circles = document.getElementsByClassName("circle");
+// console.log(circles);
+
+// const hearts = document.querySelectorAll(".heart");
+// console.log(hearts);
+// hearts.forEach((item) => {
+//   console.log(item);
+// });
+// const oneHeart = document.querySelector(".heart");
+// console.log(oneHeart);
+
+const box = document.getElementById("box"),
+  btns = document.getElementsByTagName("button"),
+  circles = document.getElementsByClassName("circle"),
+  hearts = document.querySelectorAll(".heart"),
+  oneHeart = document.querySelector(".heart"),
+  wrapper = document.document.querySelector(".wrapper");
+// console.dir(box);
+const num = "1000px";
+box.style.backgroundColor = "blue";
+box.style.width = "500px";
+box.style.cssText = `background-color: green; width: ${num}`;
+btns[1].style.borderRadius = "100%";
+circles[0].style.backgroundColor = "red";
+
+// for (let i = 0; i < hearts.length; i++) {
+//   hearts[i].style.backgroundColor = "grey";
+// }
+hearts.forEach((item) => {
+  item.style.backgroundColor = "yellow";
+});
+
+// const text = document.createTextNode("Hello ios");
+const div = document.createElement("div");
+div.classList.add("black");
+// document.body.append(div);
+// document.querySelector(".wrapper").append(div);
+//document.querySelector(".wrapper").prepend(div);
+wrapper.prepend(div);
