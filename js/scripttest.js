@@ -104,70 +104,105 @@
 // console.log(copy);
 // console.log(obj);
 
-function copy(mainObj) {
-  let objCopy = {};
-  let key;
-  for (key in mainObj) {
-    objCopy[key] = mainObj[key];
-  }
-  return objCopy;
+// function copy(mainObj) {
+//   let objCopy = {};
+//   let key;
+//   for (key in mainObj) {
+//     objCopy[key] = mainObj[key];
+//   }
+//   return objCopy;
+// }
+
+// const numbers = {
+//   a: 2,
+//   b: 5,
+//   c: {
+//     x: 7,
+//     y: 4,
+//   },
+// };
+
+// const newNumbers = copy(numbers);
+// newNumbers.a = 10;
+// newNumbers.c.x = 10;
+
+// console.log(newNumbers);
+// console.log(numbers);
+
+// const add = {
+//   d: 17,
+//   i: 20,
+// };
+
+// //console.log(Object.assign(numbers, add));
+// const clone = Object.assign({}, add);
+// clone.d = 20;
+
+// // console.log(add);
+// // console.log(clone);
+
+// const oldArray = ["a", "b", "c"];
+// const neqArray = oldArray.slice();
+// neqArray[1] = "mkgrwgrg";
+
+// console.log(oldArray);
+// console.log(neqArray);
+
+// const video = ["youtube", "vimeo", "rutube"],
+//   blogs = ["wordpress", "livejornal", "blogger"],
+//   internet = [..."vimeo", ..."blogs", "vk", "facebook"];
+
+// console.log(internet);
+
+// function log(a, b, c) {
+//   console.log(a);
+//   console.log(b);
+//   console.log(c);
+// }
+// const num = [2, 5, 7];
+
+// log(...num);
+
+// const array = ["a", "b"];
+// const newArray = [...array];
+// const q = {
+//   one: 1,
+//   two: 2,
+// };
+
+// const newObj = { ...q };
+
+//TO STRING
+//1
+console.log(typeof String(null));
+console.log(typeof String(4));
+//2
+console.log(typeof (null + ""));
+const num = 5;
+console.log("https//instagram.com/catalog" + num);
+const fontSize = 26 + "px";
+//TO NUMBER
+//1
+console.log(typeof Number("4"));
+//2
+console.log(typeof +"5");
+//3
+console.log(typeof parseInt("15px", 10));
+let answ = +prompt("Hello", "");
+//TO BOOLEAN
+//0,"",null,undefined,NaN;
+//1
+let switcher = null;
+if (switcher) {
+  console.log("Working...");
 }
 
-const numbers = {
-  a: 2,
-  b: 5,
-  c: {
-    x: 7,
-    y: 4,
-  },
-};
-
-const newNumbers = copy(numbers);
-newNumbers.a = 10;
-newNumbers.c.x = 10;
-
-console.log(newNumbers);
-console.log(numbers);
-
-const add = {
-  d: 17,
-  i: 20,
-};
-
-//console.log(Object.assign(numbers, add));
-const clone = Object.assign({}, add);
-clone.d = 20;
-
-// console.log(add);
-// console.log(clone);
-
-const oldArray = ["a", "b", "c"];
-const neqArray = oldArray.slice();
-neqArray[1] = "mkgrwgrg";
-
-console.log(oldArray);
-console.log(neqArray);
-
-const video = ["youtube", "vimeo", "rutube"],
-  blogs = ["wordpress", "livejornal", "blogger"],
-  internet = [..."vimeo", ..."blogs", "vk", "facebook"];
-
-console.log(internet);
-
-function log(a, b, c) {
-  console.log(a);
-  console.log(b);
-  console.log(c);
+switcher = 1;
+if (switcher) {
+  console.log("Working...");
 }
-const num = [2, 5, 7];
+//2
+console.log(typeof Boolean("4"));
 
-log(...num);
-
-const array = ["a", "b"];
-const newArray = [...array];
-const q = {
-  one: 1,
-  two: 2,
-};
-
-const newObj = { ...q };
+//3
+console.log(typeof !!"4444");
