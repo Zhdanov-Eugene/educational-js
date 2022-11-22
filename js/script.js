@@ -365,28 +365,28 @@ const box = document.getElementById("box"),
   wrapper = document.querySelector(".wrapper"),
   hearts = wrapper.querySelectorAll(".heart"),
   oneHeart = wrapper.querySelector(".heart");
-// console.dir(box);
-const num = "1000px";
-box.style.backgroundColor = "blue";
-box.style.width = "500px";
-box.style.cssText = `background-color: green; width: ${num}`;
-btns[1].style.borderRadius = "100%";
-circles[0].style.backgroundColor = "red";
+// // console.dir(box);
+// const num = "1000px";
+// box.style.backgroundColor = "blue";
+// box.style.width = "500px";
+// box.style.cssText = `background-color: green; width: ${num}`;
+// btns[1].style.borderRadius = "100%";
+// circles[0].style.backgroundColor = "red";
 
 // for (let i = 0; i < hearts.length; i++) {
 //   hearts[i].style.backgroundColor = "grey";
 // }
-hearts.forEach((item) => {
-  item.style.backgroundColor = "yellow";
-});
+// hearts.forEach((item) => {
+//   item.style.backgroundColor = "yellow";
+// });
 
 // const text = document.createTextNode("Hello ios");
-const div = document.createElement("div");
-div.classList.add("black");
+// const div = document.createElement("div");
+// div.classList.add("black");
 // document.body.append(div);
 // document.querySelector(".wrapper").append(div);
 //document.querySelector(".wrapper").prepend(div);
-wrapper.prepend(div);
+//wrapper.prepend(div);
 //hearts[0].before(div);
 //hearts[0].after(div);
 //circles[0].remove();
@@ -400,8 +400,58 @@ wrapper.prepend(div);
 //add text element div
 //div.innerHTML = "<h1>Hello</h1>";
 //div.textContent = "Poltava";
-div.innerHTML = "<h1>Hello</h1>";
+//div.innerHTML = "<h1>Hello</h1>";
 //div.insertAdjacentHTML("beforebegin", "<h2>France</h2>");
 //div.insertAdjacentHTML("afterbegin", "<h2>Italy</h2>");
 //div.insertAdjacentHTML("beforeend", "<h2>Italy</h2>");
 //div.insertAdjacentHTML("afterend", "<h2>Germany</h2>");
+
+/* Задания на урок:
+1) Удалить все рекламные блоки со страницы (правая часть сайта)
+2) Изменить жанр фильма, поменять "комедия" на "драма"
+3) Изменить задний фон с постером фильма на изображение "bg.jpg". Оно лежит в папке img.
+Реализовать только при помощи JS
+4) Список фильмов на странице сформировать на основании данных из этого JS файла.
+Отсортировать их по алфавиту 
+5) Добавить нумерацию выведенных фильмов */
+const movieDB = {
+  movies: [
+    "Логан",
+    "Лига справедливости",
+    "Ла-ла лэнд",
+    "Одержимость",
+    "Трансформери",
+    "Джуманджи",
+    "Аврора",
+    "Фиана и Шрек",
+    "Скотт Пилигрим против...",
+  ],
+};
+
+const advImg = document.querySelectorAll(".promo__adv img"),
+  genre = document.querySelector(".promo__genre"),
+  bg = document.querySelector(".promo__bg"),
+  movieList = document.querySelector(".promo__interactive-list");
+
+advImg.forEach((item) => {
+  item.remove();
+});
+
+genre.textContent = "драма";
+bg.style.backgroundImage = "url('../img/bg.jpg')";
+
+// movieDB.movies.sort();
+console.log(movieDB);
+
+movieList.innerHTML = "";
+
+movieDB.movies.sort();
+
+movieDB.movies.forEach((film, i) => {
+  movieList.innerHTML += `
+        <li class="promo__interactive-item">${i + 1} ${film}
+            <div class="delete"></div>
+        </li>
+    `;
+});
+//
