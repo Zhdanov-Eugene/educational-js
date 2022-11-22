@@ -362,9 +362,9 @@ P.S. Здесь есть несколько вариантов решения з
 const box = document.getElementById("box"),
   btns = document.getElementsByTagName("button"),
   circles = document.getElementsByClassName("circle"),
-  hearts = document.querySelectorAll(".heart"),
-  oneHeart = document.querySelector(".heart"),
-  wrapper = document.document.querySelector(".wrapper");
+  wrapper = document.querySelector(".wrapper"),
+  hearts = wrapper.querySelectorAll(".heart"),
+  oneHeart = wrapper.querySelector(".heart");
 // console.dir(box);
 const num = "1000px";
 box.style.backgroundColor = "blue";
@@ -387,3 +387,21 @@ div.classList.add("black");
 // document.querySelector(".wrapper").append(div);
 //document.querySelector(".wrapper").prepend(div);
 wrapper.prepend(div);
+//hearts[0].before(div);
+//hearts[0].after(div);
+//circles[0].remove();
+//hearts[0].replaceWith(circles[0]);
+
+//old code
+//wrapper.insertBefore(div, hearts[1]);
+//wrapper.removeChild(hearts[1]);
+//wrapper.replaceChild(circles[0], hearts[0]);
+
+//add text element div
+//div.innerHTML = "<h1>Hello</h1>";
+//div.textContent = "Poltava";
+div.innerHTML = "<h1>Hello</h1>";
+//div.insertAdjacentHTML("beforebegin", "<h2>France</h2>");
+//div.insertAdjacentHTML("afterbegin", "<h2>Italy</h2>");
+//div.insertAdjacentHTML("beforeend", "<h2>Italy</h2>");
+//div.insertAdjacentHTML("afterend", "<h2>Germany</h2>");
