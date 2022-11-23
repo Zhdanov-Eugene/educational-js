@@ -414,44 +414,124 @@ const box = document.getElementById("box"),
 4) Список фильмов на странице сформировать на основании данных из этого JS файла.
 Отсортировать их по алфавиту 
 5) Добавить нумерацию выведенных фильмов */
-const movieDB = {
-  movies: [
-    "Логан",
-    "Лига справедливости",
-    "Ла-ла лэнд",
-    "Одержимость",
-    "Трансформери",
-    "Джуманджи",
-    "Аврора",
-    "Фиана и Шрек",
-    "Скотт Пилигрим против...",
-  ],
+// const movieDB = {
+//   movies: [
+//     "Логан",
+//     "Лига справедливости",
+//     "Ла-ла лэнд",
+//     "Одержимость",
+//     "Трансформери",
+//     "Джуманджи",
+//     "Аврора",
+//     "Фиана и Шрек",
+//     "Скотт Пилигрим против...",
+//   ],
+//   catFilm: [
+//     "Фильмы",
+//     "Сериалы",
+//     "Мультфильмы",
+//     "Клипы",
+//     "Трейлеры",
+//     "Музыка",
+//     "Передачи",
+//     "Радио",
+//   ],
+// };
+
+// const advImg = document.querySelectorAll(".promo__adv img"),
+//   genre = document.querySelector(".promo__genre"),
+//   bg = document.querySelector(".promo__bg"),
+//   movieList = document.querySelector(".promo__interactive-list"),
+//   category = document.querySelector(".promo__menu-list ul");
+
+// advImg.forEach((item) => {
+//   item.remove();
+// });
+
+// genre.textContent = "драма";
+// bg.style.backgroundImage = "url('../img/bg.jpg')";
+
+// // movieDB.movies.sort();
+// console.log(movieDB);
+
+// movieList.innerHTML = ""; //очищает код
+
+// movieDB.movies.sort(); //сортировка по алфавиту если там строки
+
+// movieDB.movies.forEach((film, i) => {
+//   movieList.innerHTML += `
+//         <li class="promo__interactive-item">${i + 1} ${film}
+//             <div class="delete"></div>
+//         </li>
+//     `;
+// });
+// //і номер по порядку +1 начинаєм с первого а не с нуля и li то что нужно передать или увидеть на странице
+// //console.log(poster.innerHTML);
+// category.innerHTML = ""; //очищает код
+// movieDB.catFilm.sort();
+// movieDB.catFilm.forEach((film) => {
+//   category.innerHTML += `
+//    <li><a class="promo__menu-item" href="#">${film}</a></li>
+//     `;
+// });
+// console.log(category);
+///////////////////////////////////////event
+///////////////////////////////////////event
+///////////////////////////////////////event
+const btn = document.querySelector("button"),
+  butn = document.querySelectorAll("button"),
+  overlay = document.querySelector(".overlay");
+
+// btn.onclick = function () {
+//   alert("Click Hello");
+// };
+
+// btn.addEventListener("click", () => {
+//   alert("Click Buy");
+// });
+// btn.addEventListener("click", () => {
+//   alert("Click Sea");
+// });
+
+// btn.addEventListener("mouseenter", () => {
+//   console.log("Hover");
+// });
+
+// btn.addEventListener("mouseenter", (e) => {
+//   console.log(e);
+// });
+// btn.addEventListener("click", (e) => {
+//   e.target.remove();
+// });
+
+// let i = 0;
+// const deleteElement = (e) => {
+//   console.log(e.target);
+//   i++;
+//   if (i == 1) {
+//     btn.removeEventListener("click", deleteElement);
+//   }
+// };
+// btn.addEventListener("click", deleteElement);
+
+const deleteElement = (e) => {
+  console.log(e.target);
+  console.log(e.type);
 };
+// btn.addEventListener("click", deleteElement);
+// overlay.addEventListener("click", deleteElement);
 
-const advImg = document.querySelectorAll(".promo__adv img"),
-  genre = document.querySelector(".promo__genre"),
-  bg = document.querySelector(".promo__bg"),
-  movieList = document.querySelector(".promo__interactive-list");
+// const link = document.querySelector("a");
+// link.addEventListener("click", function (event) {
+//   event.preventDefault();
+//   console.log(event.target);
+// });
 
-advImg.forEach((item) => {
-  item.remove();
-});
+// butn.forEach((item) => {
+//   item.addEventListener("click", deleteElement);
+// });
+//добавить собития на все кнопки
 
-genre.textContent = "драма";
-bg.style.backgroundImage = "url('../img/bg.jpg')";
-
-// movieDB.movies.sort();
-console.log(movieDB);
-
-movieList.innerHTML = "";
-
-movieDB.movies.sort();
-
-movieDB.movies.forEach((film, i) => {
-  movieList.innerHTML += `
-        <li class="promo__interactive-item">${i + 1} ${film}
-            <div class="delete"></div>
-        </li>
-    `;
-});
-//
+butn.forEach((item) => {
+  item.addEventListener("click", deleteElement, { once: true });
+}); //одиночное собития
