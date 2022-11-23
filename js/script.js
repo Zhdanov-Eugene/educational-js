@@ -478,9 +478,9 @@ const box = document.getElementById("box"),
 ///////////////////////////////////////event
 ///////////////////////////////////////event
 ///////////////////////////////////////event
-const btn = document.querySelector("button"),
-  butn = document.querySelectorAll("button"),
-  overlay = document.querySelector(".overlay");
+// const btn = document.querySelector("button"),
+//   butn = document.querySelectorAll("button"),
+//   overlay = document.querySelector(".overlay");
 
 // btn.onclick = function () {
 //   alert("Click Hello");
@@ -514,10 +514,10 @@ const btn = document.querySelector("button"),
 // };
 // btn.addEventListener("click", deleteElement);
 
-const deleteElement = (e) => {
-  console.log(e.target);
-  console.log(e.type);
-};
+// const deleteElement = (e) => {
+//   console.log(e.target);
+//   console.log(e.type);
+// };
 // btn.addEventListener("click", deleteElement);
 // overlay.addEventListener("click", deleteElement);
 
@@ -532,6 +532,28 @@ const deleteElement = (e) => {
 // });
 //добавить собития на все кнопки
 
-butn.forEach((item) => {
-  item.addEventListener("click", deleteElement, { once: true });
-}); //одиночное собития
+// butn.forEach((item) => {
+//   item.addEventListener("click", deleteElement, { once: true });
+// }); //одиночное собития
+///////////////////////////////////////data_attributes
+///////////////////////////////////////data_attributes
+///////////////////////////////////////data_attributes
+//console.log(document.head);
+//console.log(document.documentElement);
+//console.log(document.body.childNodes);
+//console.log(document.body.firstChild);
+//console.log(document.body.lastChild);
+
+//console.log(document.querySelector("#current").parentNode);
+//console.log(document.querySelector("#current").parentNode.parentNode);
+//console.log(document.querySelector("[data-current='3']").nextSibling);
+// console.log(document.querySelector("[data-current='3']").previosSibling);
+//console.log(document.querySelector("[data-current='3']").nextElementSibling);
+//console.log(document.querySelector("#current").parentElement);
+
+// for (let node of document.body.childNodes) {
+//   if (node.name == "#text") {
+//     continue;
+//   }
+//   console.log(node);
+// }
