@@ -40,6 +40,9 @@
 // personalMovieDB.movies[c] = d;
 
 // console.log(personalMovieDB);
+///////////////////////////////////////
+///////////////////////////////////////
+///////////////////////////////////////
 
 /* Задание на урок2:
 1)
@@ -104,7 +107,9 @@
 //   console.log("Произошла ошибка");
 // }
 // console.log(personalMovieDB);
-
+///////////////////////////////////////
+///////////////////////////////////////
+///////////////////////////////////////
 /* Задание на урок3:
 1)
 Первую часть задания повторить по уроку
@@ -200,7 +205,9 @@ P.S. Функции вызывать не обязательно */
 //   }
 // }
 // writeYourActors();
-
+///////////////////////////////////////
+///////////////////////////////////////
+///////////////////////////////////////
 /* Задание на урок3:
 1)
 У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
@@ -317,23 +324,10 @@ P.S. Функции вызывать не обязательно */
 // personalMovieDB.writeYourGenres();
 // personalMovieDB.toggleVisibleMyDB();
 // console.log(personalMovieDB);
+///////////////////////////////////////
+///////////////////////////////////////
+///////////////////////////////////////
 
-/* Задания на урок:
-1) 
-Реализовать функционал, что после заполнения формы и нажатия кнопки "Подтвердить" - 
-новый фильм добавляется в список. Страница не должна перезагружаться.
-Новый фильм должен добавляться в movieDB.movies.
-Для получения доступа к значению input - обращаемся к нему как input.value;
-P.S. Здесь есть несколько вариантов решения задачи, принимается любой, но рабочий.
-2) 
-Если название фильма больше, чем 21 символ - обрезать его и добавить три точки
-3) 
-При клике на мусорную корзину - элемент будет удаляться из списка (сложно)
-4) 
-Если в форме стоит галочка "Сделать любимым" - в консоль вывести сообщение: 
-"Добавляем любимый фильм"
-5) 
-Фильмы должны быть отсортированы по алфавиту */
 /**************DOM******************/
 // const box = document.getElementById("box");
 // console.log(box);
@@ -641,68 +635,182 @@ const box = document.getElementById("box"),
 
 // console.log(getTotalProgresByIteration(students));
 
-let students = {
-  js: [
-    {
-      name: "John",
-      progress: 100,
-    },
-    {
-      name: "Ivan",
-      progress: 60,
-    },
-  ],
+// let students = {
+//   js: [
+//     {
+//       name: "John",
+//       progress: 100,
+//     },
+//     {
+//       name: "Ivan",
+//       progress: 60,
+//     },
+//   ],
 
-  html: {
-    basic: [
-      {
-        name: "Peter",
-        progress: 20,
-      },
-      {
-        name: "Ann",
-        progress: 18,
-      },
+//   html: {
+//     basic: [
+//       {
+//         name: "Peter",
+//         progress: 20,
+//       },
+//       {
+//         name: "Ann",
+//         progress: 18,
+//       },
+//     ],
+
+//     pro: [
+//       {
+//         name: "Sam",
+//         progress: 10,
+//       },
+//     ],
+
+//     semi: {
+//       students: [
+//         {
+//           name: "test",
+//           progress: 101,
+//         },
+//       ],
+//     },
+//   },
+// };
+// function getTotalProgressByRecursion(data) {
+//   if (Array.isArray(data)) {
+//     let total = 0;
+
+//     for (let i = 0; i < data.length; i++) {
+//       total += data[i].progress;
+//     }
+
+//     return [total, data.length];
+//   } else {
+//     let total = [0, 0];
+
+//     for (const subData of Object.values(data)) {
+//       const subDataArr = getTotalProgressByRecursion(subData);
+//       total[0] += subDataArr[0];
+//       total[1] += subDataArr[1];
+//     }
+
+//     return total;
+//   }
+// }
+// const result = getTotalProgressByRecursion(students);
+
+// console.log(result[0] / result[1]);
+
+/* Задания на урок task4:
+1) 
+Реализовать функционал, что после заполнения формы и нажатия кнопки "Подтвердить" - 
+новый фильм добавляется в список. 
+Страница не должна перезагружаться.
+Новый фильм должен добавляться в movieDB.movies.
+Для получения доступа к значению input - обращаемся к нему как input.value;
+P.S. Здесь есть несколько вариантов решения задачи, принимается любой, но рабочий.
+2) 
+Если название фильма больше, чем 21 символ - обрезать его и добавить три точки
+3) 
+При клике на мусорную корзину - элемент будет удаляться из списка (сложно)
+4) 
+Если в форме стоит галочка "Сделать любимым" - в консоль вывести сообщение: 
+"Добавляем любимый фильм"
+5) 
+Фильмы должны быть отсортированы по алфавиту */
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  const movieDB = {
+    movies: [
+      "Логан",
+      "Лига справедливости",
+      "Ла-ла лэнд",
+      "Одержимость",
+      "Трансформери",
+      "Джуманджи",
+      "Аврора",
+      "Фиана и Шрек",
+      "Скотт Пилигрим против...",
     ],
-
-    pro: [
-      {
-        name: "Sam",
-        progress: 10,
-      },
+    catFilm: [
+      "Фильмы",
+      "Сериалы",
+      "Мультфильмы",
+      "Клипы",
+      "Трейлеры",
+      "Музыка",
+      "Передачи",
+      "Радио",
     ],
+  };
 
-    semi: {
-      students: [
-        {
-          name: "test",
-          progress: 101,
-        },
-      ],
-    },
-  },
-};
-function getTotalProgressByRecursion(data) {
-  if (Array.isArray(data)) {
-    let total = 0;
+  const advImg = document.querySelectorAll(".promo__adv img"),
+    genre = document.querySelector(".promo__genre"),
+    bg = document.querySelector(".promo__bg"),
+    movieList = document.querySelector(".promo__interactive-list"),
+    category = document.querySelector(".promo__menu-list ul"),
+    addForm = document.querySelector("form.add"),
+    addInput = addForm.querySelector(".adding__input"),
+    btnForm = addForm.querySelector("button"),
+    checkbox = addForm.createElement("[type='checkbox']");
 
-    for (let i = 0; i < data.length; i++) {
-      total += data[i].progress;
-    }
+  addForm.addEventListener("submit", (e) => {
+    e.preventDefault(); //отменяэм стандартное поведение браузера тоесть перезагрузку страници
 
-    return [total, data.length];
-  } else {
-    let total = [0, 0];
+    const newFilm = addInput.velue; //добавляєм новий фильм через переменная newFilm + addInput - обращаэмся к инпуту чтоб проверить взаэмодействовал ли пользователь с ним тем самим проверяя значение value(отображаєтся то что ввел пользователь);
+    const favorite = checkbox.checked; //либо отмечена либо нет.checked(true or false).
 
-    for (const subData of Object.values(data)) {
-      const subDataArr = getTotalProgressByRecursion(subData);
-      total[0] += subDataArr[0];
-      total[1] += subDataArr[1];
-    }
+    movieDB.movies.push(newFilm); //добавляэм новий фильм в базу данних(бд+свойство(мувис) и  сюда методом пуш добавляэм новий фильм(newFilm))
+    movieDB.movies.sort();
+  });
 
-    return total;
+  const deleteAdv = (arr) => {
+    //использовать такой синтаксис
+    arr.forEach((item) => {
+      item.remove();
+    });
+  };
+
+  deleteAdv(advImg); //помещаем то что нужно удалить с помощью функции deleteAdv
+
+  const makeChanges = (a, b) => {
+    a.textContent = "драма";
+    b.style.backgroundImage = "url('../img/bg.jpg')";
+  };
+  makeChanges(genre, bg);
+
+  movieList.innerHTML = ""; //очищает код
+
+  movieDB.movies.sort(); //сортировка по алфавиту если там строки
+
+  movieDB.movies.forEach((film, i) => {
+    movieList.innerHTML += `
+        <li class="promo__interactive-item">${i + 1} ${film}
+            <div class="delete"></div>
+        </li>
+    `;
+  });
+
+  category.innerHTML = ""; //очищает код
+  movieDB.catFilm.sort();
+  movieDB.catFilm.forEach((film) => {
+    category.innerHTML += `
+   <li><a class="promo__menu-item" href="#">${film}</a></li>
+    `;
+  });
+  console.log(category);
+
+  function createMoviesList(films, parent) {
+    parent.innerHTML = "";
+
+    films.forEach((film, i) => {
+      parent.innerHTML += `
+        <li class="promo__interactive-item">${i + 1} ${film}
+            <div class="delete"></div>
+        </li>
+    `;
+    });
   }
-}
-const result = getTotalProgressByRecursion(students);
 
-console.log(result[0] / result[1]);
+  createMoviesList(movieDB.movies, parent);
+});
