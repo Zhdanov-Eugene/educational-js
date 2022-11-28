@@ -718,8 +718,8 @@ P.S. Здесь есть несколько вариантов решения з
 "Добавляем любимый фильм"
 5) 
 Фильмы должны быть отсортированы по алфавиту */
-
-document.addEventListener("DOMContentLoaded", (event) => {
+//ОБЕРТАЄМО  ввесь скрипт для того щоб дочекатися повної загркзки дом-дерева(html) і потім начинають загружатися скрипти.
+document.addEventListener("DOMContentLoaded", () => {
   const movieDB = {
     movies: [
       "Логан",
@@ -732,76 +732,59 @@ document.addEventListener("DOMContentLoaded", (event) => {
       "Фиана и Шрек",
       "Скотт Пилигрим против...",
     ],
-    catFilm: [
-      "Фильмы",
-      "Сериалы",
-      "Мультфильмы",
-      "Клипы",
-      "Трейлеры",
-      "Музыка",
-      "Передачи",
-      "Радио",
-    ],
   };
 
   const advImg = document.querySelectorAll(".promo__adv img"),
     genre = document.querySelector(".promo__genre"),
     bg = document.querySelector(".promo__bg"),
     movieList = document.querySelector(".promo__interactive-list"),
-    category = document.querySelector(".promo__menu-list ul"),
     addForm = document.querySelector("form.add"),
     addInput = addForm.querySelector(".adding__input"),
-    btnForm = addForm.querySelector("button"),
-    checkbox = addForm.createElement("[type='checkbox']");
+    checkbox = addForm.querySelector("[type='checkbox']");
 
-  addForm.addEventListener("submit", (e) => {
-    e.preventDefault(); //отменяэм стандартное поведение браузера тоесть перезагрузку страници
+  addForm.addEventListener("submit", (event) => {
+    event.preventDefault(); //отменяэм стандартное поведение браузера тоесть перезагрузку страници
 
-    const newFilm = addInput.velue; //добавляєм новий фильм через переменная newFilm + addInput - обращаэмся к инпуту чтоб проверить взаэмодействовал ли пользователь с ним тем самим проверяя значение value(отображаєтся то что ввел пользователь);
+    let newFilm = addInput.value; //добавляєм новий фильм через переменная newFilm + addInput - обращаэмся к инпуту чтоб проверить взаэмодействовал ли пользователь с ним тем самим проверяя значение value(отображаєтся то что ввел пользователь);
     const favorite = checkbox.checked; //либо отмечена либо нет.checked(true or false).
 
-    movieDB.movies.push(newFilm); //добавляэм новий фильм в базу данних(бд+свойство(мувис) и  сюда методом пуш добавляэм новий фильм(newFilm))
-    movieDB.movies.sort();
+    if (newFilm) {
+      if (newFilm.length > 21) {
+        newFilm = `${newFilm.substring(0, 22)}...`;
+      }
+
+      if (favorite) {
+        console.log("Добавляем любимый фильм");
+      }
+
+      movieDB.movies.push(newFilm); //добавляэм новий фильм в базу данних(бд+свойство(мувис) и  сюда методом пуш добавляэм новий фильм(newFilm))
+      sortArr(movieDB.movies); //функция сортировки(movieDB.movies) сортируэм /где\ и /что\
+
+      createMoviesList(movieDB.movies, movieList); //создание нових елементов на страничке
+    }
+    event.target.reset(); //очистить форму(инпут)
   });
 
+  //использовать такой синтаксис
   const deleteAdv = (arr) => {
-    //использовать такой синтаксис
     arr.forEach((item) => {
       item.remove();
     });
   };
 
-  deleteAdv(advImg); //помещаем то что нужно удалить с помощью функции deleteAdv
-
-  const makeChanges = (a, b) => {
-    a.textContent = "драма";
+  const makeChanges = (g, b) => {
+    g.textContent = "драма";
     b.style.backgroundImage = "url('../img/bg.jpg')";
   };
-  makeChanges(genre, bg);
 
-  movieList.innerHTML = ""; //очищает код
+  const sortArr = (arr) => {
+    arr.sort();
+  };
 
-  movieDB.movies.sort(); //сортировка по алфавиту если там строки
-
-  movieDB.movies.forEach((film, i) => {
-    movieList.innerHTML += `
-        <li class="promo__interactive-item">${i + 1} ${film}
-            <div class="delete"></div>
-        </li>
-    `;
-  });
-
-  category.innerHTML = ""; //очищает код
-  movieDB.catFilm.sort();
-  movieDB.catFilm.forEach((film) => {
-    category.innerHTML += `
-   <li><a class="promo__menu-item" href="#">${film}</a></li>
-    `;
-  });
-  console.log(category);
-
+  //перебор фильмов и вистроение по порядку + номер
   function createMoviesList(films, parent) {
-    parent.innerHTML = "";
+    parent.innerHTML = ""; //парент делаєт  функцию независимой(ul)
+    sortArr(films); //функция сортировки(movieDB.movies) сортируэм /где\ и /что\
 
     films.forEach((film, i) => {
       parent.innerHTML += `
@@ -810,7 +793,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
         </li>
     `;
     });
+
+    document.querySelectorAll(".delete").forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        btn.parentElement.remove();
+        movieDB.movies.splice(i, 1);
+
+        createMoviesList(films, parent);
+      });
+    });
   }
 
-  createMoviesList(movieDB.movies, parent);
+  //визов свех функций
+  deleteAdv(advImg); //помещаем то что нужно удалить с помощью функции deleteAdv
+  makeChanges(genre, bg);
+  createMoviesList(movieDB.movies, movieList); //передаем первий аргумент(фильми которие перебираются) и то куда ми будем помещать фильми(список)
 });
