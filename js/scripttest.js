@@ -417,14 +417,74 @@
 //   [Symbol("id")]: 123,
 // };
 
-const myAwesomeDB = {
-  movies: [],
-  actors: [],
-  [Symbol.for("id")]: 123,
-};
-//сторонний код библиотеки
-// myAwesomeDB.id = "232323";
-// console.log(myAwesomeDB["id"]);
-console.log(myAwesomeDB);
+// const myAwesomeDB = {
+//   movies: [],
+//   actors: [],
+//   [Symbol.for("id")]: 123,
+// };
+// //сторонний код библиотеки
+// // myAwesomeDB.id = "232323";
+// // console.log(myAwesomeDB["id"]);
+// console.log(myAwesomeDB);
 
-console.log(myAwesomeDB[Symbol.for("id")]);
+// console.log(myAwesomeDB[Symbol.for("id")]);
+// //
+// const user = {
+//   name: "Alex",
+//   surname: "Smith",
+//   britday: "20/04/1993",
+//   Data: function () {
+//     console.log(`${this.name} ${this.surname}`);
+//   },
+// };
+
+// const user = {
+//   name: "Alex",
+//   surname: "Smith",
+//   showMyPublicData: function () {
+//     console.log(`${this.name} ${this.surname}`);
+//   },
+// };
+//writable
+//enumerable
+//configurable
+// Object.defineProperty(user, "birtday", {
+//   value: prompt("Date?"),
+//   enumerable: true,
+//   configurable: true,
+// });
+//Object.defineProperty(user, "birtday", { writable: false });
+//console.log(Object.getOwnPropertyDescriptor(user, "birtday"));
+//console.log(Object.getOwnPropertyDescriptor(user, "name"));
+//Object.defineProperty(user, "name", { writable: false });
+// Object.defineProperty(user, "gender", { value: "male" });
+// console.log(Object.getOwnPropertyDescriptor(user, "gender"));
+//console.log(Object.getOwnPropertyDescriptor(user, "birtday"));
+
+// console.log(Object.getOwnPropertyDescriptor(Math, "PI"));
+// Object.defineProperty(user, "showMyPublicData", { enumerable: false });
+
+// for (let key in user) console.log(key);
+
+// Object.defineProperties(user, {
+//   name: { writable: false },
+//   surname: { writable: false },
+// });
+const birtday = Symbol("britday");
+const user = {
+  name: "Alex",
+  surname: "Smith",
+  [birtday]: "20/04/2021",
+  showMyPublicData: function () {
+    console.log(`${this.name} ${this.surname}`);
+  },
+};
+
+Object.defineProperty(user, "showMyPublicData", { enumerable: false });
+
+for (let key in user) console.log(key);
+console.log(Object.getOwnPropertyDescriptor(user, birtday));
+Object.defineProperties(user, {
+  name: { writable: false },
+  surname: { writable: false },
+});
