@@ -298,17 +298,85 @@
 //     console.log("End");
 //   });
 // });
-//загрузка скриптов
-//загрузка скриптов
-//загрузка скриптов
-const box = document.querySelector(".box");
+//оператор нулевого слияния
+//оператор нулевого слияния
+//оператор нулевого слияния
+// const box11 = document.querySelector(".box11");
 
-const newHeight = 100;
-const newWidth = 400;
+// // const newHeight = 0;
+// const newHeight = 100;
+// const newWidth = 400;
 
-function changeParams(elem, h, w) {
-  elem.style.height = `${h || 200}px`;
-  elem.style.width = `${w || 200}px`;
-}
+// function changeParams(elem, h, w) {
+//   // elem.style.height = `${h || 200}px`;
+//   // elem.style.width = `${w || 200}px`;
+//   elem.style.height = `${h ?? 200}px`;
+//   elem.style.width = `${w ?? 200}px`;
+//   elem.innerHTML = (h ?? 200) * (w ?? 200);
+// }
 
-changeParams(box, newHeight, newWidth);
+// changeParams(box11, newHeight, newWidth);
+
+// let userName;
+// console.log(userName ?? "User");
+// let userName = null;
+// console.log(userName ?? "User");
+// let userName = NaN; //or 0, (false)
+// console.log(userName ?? "User");
+// let userName;
+// let userKey;
+// console.log(userName ?? userKey ?? "User");
+//оператор опциональной загрузки
+//оператор опциональной загрузки
+//оператор опциональной загрузки
+
+// const box111 = document.querySelector(".box111");
+// const block = document.querySelector(".block");
+
+// console.log(block);
+// // if (block) {
+// //   console.log(block.textContent);
+// // }
+// //block?.textContent = 'utiputi';
+// console.log(block?.textContent);
+// console.log(1 + 2);
+
+// const userData = {
+//   name: "Ivan",
+//   age: null,
+//   say: function () {
+//     console.log("Hello");
+//   },
+// };
+
+// userData.say();
+// userData.hey?.();
+// // if (userData && userData.skills && userData.skills.js) {
+// //   console.log(userData.skills.js);
+// // }
+// console.log(userData?.skills?.js);
+//жывие коллекции
+//жывие коллекции
+//жывие коллекции
+// const boxesQuery = document.querySelectorAll(".box22");
+// const boxesGet = document.getElementsByClassName("box22");
+
+// boxesQuery.forEach((box) => {
+//   if (box.matches(".this")) console.log("This one");
+// });
+
+// console.log(boxesQuery[0].closest(".wrapper"));
+// boxesQuery[0].remove();
+// boxesGet[0].remove();
+
+// for (let i = 0; i < 5; i++) {
+//   const div = document.createElement("div");
+//   div.classList.add("box22");
+//   //document.body.append(div);
+//   boxesQuery[boxesGet.length] = div;
+// }
+
+// console.log(boxesQuery);
+// console.log(boxesGet);
+// // console.log(document.body.children);
+// console.log(Array.from(boxesGet));
