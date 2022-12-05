@@ -260,3 +260,55 @@
 // console.log([] + 1 + 2); //12
 
 //Есть ли разница между выражениями? !!( a && b ) и (a && b)?
+//mobile touch
+//mobile touch
+//mobile touch
+//touchstart
+//touchmove
+//touchend
+//touchenter
+//touchleave
+//touchcancel
+//
+//touches
+//targetTouches
+//changedTouches
+
+// window.addEventListener("DOMContentLoaded", () => {
+//   const box = document.querySelector(".box");
+
+//   box.addEventListener("touchstart", (e) => {
+//     e.preventDefault();
+
+//     console.log("Start");
+//     console.log(e.touches);
+//     console.log(e.targetTouches);
+//   });
+
+//   box.addEventListener("touchmove", (e) => {
+//     e.preventDefault();
+
+//     console.log("Move");
+//     console.log(e.targetTouches[0].pageX);
+//   });
+
+//   box.addEventListener("touchend", (e) => {
+//     e.preventDefault();
+
+//     console.log("End");
+//   });
+// });
+//загрузка скриптов
+//загрузка скриптов
+//загрузка скриптов
+const box = document.querySelector(".box");
+
+const newHeight = 100;
+const newWidth = 400;
+
+function changeParams(elem, h, w) {
+  elem.style.height = `${h || 200}px`;
+  elem.style.width = `${w || 200}px`;
+}
+
+changeParams(box, newHeight, newWidth);
