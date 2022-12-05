@@ -380,3 +380,51 @@
 // console.log(boxesGet);
 // // console.log(document.body.children);
 // console.log(Array.from(boxesGet));
+//symbol
+//symbol
+//symbol
+
+// let id = Symbol("id");
+
+// const obj = {
+//   name: "Test",
+//   [id]: 1,
+//   getId: function () {
+//     return this[id];
+//   },
+// };
+// console.log(obj.getId());
+// console.log(Object.getOwnPropertySymbols(obj));
+// console.log(obj[getOwnPropertySymbols(obj)[0]]);
+// const obj = {
+//   name: "Test",
+//   [Symbol("id")]: 1,
+// };
+// let id = Symbol("id");
+// //let id = Symbol();
+// let id2 = Symbol("id");
+// obj[id] = 1;
+
+// console.log(id == id2);
+// console.log(obj[id]);
+// console.log(obj);
+
+// for (let value in object) console.log(value);
+
+// const myAwesomeDB = {
+//   movies: [],
+//   actors: [],
+//   [Symbol("id")]: 123,
+// };
+
+const myAwesomeDB = {
+  movies: [],
+  actors: [],
+  [Symbol.for("id")]: 123,
+};
+//сторонний код библиотеки
+// myAwesomeDB.id = "232323";
+// console.log(myAwesomeDB["id"]);
+console.log(myAwesomeDB);
+
+console.log(myAwesomeDB[Symbol.for("id")]);
