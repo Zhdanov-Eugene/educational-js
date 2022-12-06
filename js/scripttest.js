@@ -669,19 +669,19 @@
 // const set = new Set(arr);
 // console.log(arr, set);
 //
-const arr = [
-  "Alex",
-  "Ivan",
-  "Ivan",
-  "Andrey",
-  "Andrey",
-  "Valentin",
-  "Zina",
-  "Vlad",
-];
-const set = new Set(arr);
-set.add("Olga").add("Valentin");
-console.log(arr, set);
+// const arr = [
+//   "Alex",
+//   "Ivan",
+//   "Ivan",
+//   "Andrey",
+//   "Andrey",
+//   "Valentin",
+//   "Zina",
+//   "Vlad",
+// ];
+// const set = new Set(arr);
+// set.add("Olga").add("Valentin");
+// console.log(arr, set);
 //
 // set.delete(value);
 // set.has(value);
@@ -695,6 +695,22 @@ console.log(arr, set);
 // console.log(set.values());
 // console.log(set.keys());
 // console.log(set.entries());
-function unique(arr) {
-  return Array.from(new Set(arr));
-}
+// function unique(arr) {
+//   return Array.from(new Set(arr));
+// }
+//BigInt
+//BigInt
+//BigInt
+//BigInt
+//BigInt
+// const bigint = 2111212121212112121122121212121212121212n;
+const sameBigint = BigInt(2111212121212112121122121212121212121212);
+// console.log(typeof bigint);
+//console.log(5n + 1);
+//console.log(Math.round(5n));
+console.log(2n + 3n);
+console.log(5n / 3n);
+console.log(5n > 3n);
+let bigint = 1n;
+let number = 2;
+console.log(bigint + BigInt(number));
