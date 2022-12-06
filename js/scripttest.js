@@ -470,21 +470,84 @@
 //   name: { writable: false },
 //   surname: { writable: false },
 // });
-const birtday = Symbol("britday");
+// const birtday = Symbol("britday");
+// const user = {
+//   name: "Alex",
+//   surname: "Smith",
+//   [birtday]: "20/04/2021",
+//   showMyPublicData: function () {
+//     console.log(`${this.name} ${this.surname}`);
+//   },
+// };
+
+// Object.defineProperty(user, "showMyPublicData", { enumerable: false });
+
+// for (let key in user) console.log(key);
+// console.log(Object.getOwnPropertyDescriptor(user, birtday));
+// Object.defineProperties(user, {
+//   name: { writable: false },
+//   surname: { writable: false },
+// });
+//итерируэмие конструкции
+//итерируэмие конструкции
+//итерируэмие конструкции
+//итерируэмие конструкции
+//итерируэмие конструкции
 const user = {
   name: "Alex",
   surname: "Smith",
-  [birtday]: "20/04/2021",
+  birtday: "20/04/1993",
   showMyPublicData: function () {
     console.log(`${this.name} ${this.surname}`);
   },
 };
 
-Object.defineProperty(user, "showMyPublicData", { enumerable: false });
+for (const keys in user) {
+  console.log(user[keys]);
+}
 
-for (let key in user) console.log(key);
-console.log(Object.getOwnPropertyDescriptor(user, birtday));
-Object.defineProperties(user, {
-  name: { writable: false },
-  surname: { writable: false },
-});
+// const arr = ["b", "c", "a"];
+// for (const key in arr) {
+//   console.log(arr[key]);
+// }
+
+// const str = "string";
+// for (const key in str) {
+//   console.log(str[key]);
+// }
+
+const arr = ["b", "c", "a"];
+Array.prototype.someMethod = function () {};
+console.dir(arr);
+for (const key of arr) {
+  console.log(key);
+}
+
+const salaries = {
+  jhon: 500,
+  ivan: 1000,
+  anna: 5000,
+  sayHello: function () {
+    console.log("Hello");
+  },
+};
+
+salaries[Symbol.iterator] = function () {
+  return {
+    current: this.jhon,
+    last: this.anna,
+    next() {
+      if (this.current < this.last) {
+        this.current = this.current + 500;
+        return { done: false, value: this.current };
+      } else {
+        return { done: true };
+      }
+    },
+  };
+};
+for (let res of salaries) {
+  console.log(res);
+}
+//const iterator = salaries[Symbol.iterator]();
+//console.log(iterator.next());
