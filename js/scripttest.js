@@ -493,18 +493,18 @@
 //итерируэмие конструкции
 //итерируэмие конструкции
 //итерируэмие конструкции
-const user = {
-  name: "Alex",
-  surname: "Smith",
-  birtday: "20/04/1993",
-  showMyPublicData: function () {
-    console.log(`${this.name} ${this.surname}`);
-  },
-};
+// const user = {
+//   name: "Alex",
+//   surname: "Smith",
+//   birtday: "20/04/1993",
+//   showMyPublicData: function () {
+//     console.log(`${this.name} ${this.surname}`);
+//   },
+// };
 
-for (const keys in user) {
-  console.log(user[keys]);
-}
+// for (const keys in user) {
+//   console.log(user[keys]);
+// }
 
 // const arr = ["b", "c", "a"];
 // for (const key in arr) {
@@ -516,38 +516,133 @@ for (const keys in user) {
 //   console.log(str[key]);
 // }
 
-const arr = ["b", "c", "a"];
-Array.prototype.someMethod = function () {};
-console.dir(arr);
-for (const key of arr) {
-  console.log(key);
-}
+// const arr = ["b", "c", "a"];
+// Array.prototype.someMethod = function () {};
+// console.dir(arr);
+// for (const key of arr) {
+//   console.log(key);
+// }
 
-const salaries = {
-  jhon: 500,
-  ivan: 1000,
-  anna: 5000,
-  sayHello: function () {
-    console.log("Hello");
-  },
-};
+// const salaries = {
+//   jhon: 500,
+//   ivan: 1000,
+//   anna: 5000,
+//   sayHello: function () {
+//     console.log("Hello");
+//   },
+// };
 
-salaries[Symbol.iterator] = function () {
-  return {
-    current: this.jhon,
-    last: this.anna,
-    next() {
-      if (this.current < this.last) {
-        this.current = this.current + 500;
-        return { done: false, value: this.current };
-      } else {
-        return { done: true };
-      }
-    },
-  };
-};
-for (let res of salaries) {
-  console.log(res);
-}
+// salaries[Symbol.iterator] = function () {
+//   return {
+//     current: this.jhon,
+//     last: this.anna,
+//     next() {
+//       if (this.current < this.last) {
+//         this.current = this.current + 500;
+//         return { done: false, value: this.current };
+//       } else {
+//         return { done: true };
+//       }
+//     },
+//   };
+// };
+// for (let res of salaries) {
+//   console.log(res);
+// }
 //const iterator = salaries[Symbol.iterator]();
 //console.log(iterator.next());
+//map
+//map
+//map
+//map
+//map
+const user = {
+  name: "Alex",
+  surname: "Smith",
+  birtday: "20/04/1993",
+  showMyPublicData: function () {
+    console.log(`${this.name} ${this.surname}`);
+  },
+};
+console.log(user);
+const userMap = new Map(Object.entries(user));
+console.log(userMap);
+
+const newUserObj = Object.fromEntries(userMap);
+console.log(newUserObj);
+//
+// const user1 = {
+//   4: "Alex",
+//   surname: "Smith",
+//   birtday: "20/04/1993",
+//   showMyPublicData: function () {
+//     console.log(`${this.name} ${this.surname}`);
+//   },
+// };
+// console.log(typeof Object.keys(user1)[0]);
+//
+//
+// const user2 = {
+//  {}: "Alex",//!!!!
+//   surname: "Smith",
+//   birtday: "20/04/1993",
+//   showMyPublicData: function () {
+//     console.log(`${this.name} ${this.surname}`);
+//   }
+// };
+// console.log(typeof Object.keys(user2)[0]);
+// const shops = [{ rice: 500 }, { oil: 200 }, { bread: 50 }];
+// const map = new Map();
+// map.set(shops[0], 5000);
+// console.log(map);
+//
+// const shops = [{ rice: 500 }, { oil: 200 }, { bread: 50 }];
+// const map = new Map();
+// map.set(shops[0], 5000);
+// map.set(shops[1], 15000);
+// map.set(shops[2], 25000);
+// console.log(map);
+//
+// const shops = [{ rice: 500 }, { oil: 200 }, { bread: 50 }];
+// const map = new Map();
+// map.set(shops[0], 5000).set(shops[1], 15000).set(shops[2], 25000);
+// console.log(map);
+//
+
+const shops = [{ rice: 500 }, { oil: 200 }, { bread: 50 }];
+const budget = [5000, 15000, 25000];
+const map = new Map([[{ paper: 400 }, 8000]]);
+shops.forEach((shop, i) => {
+  map.set(shop, budget[i]);
+});
+console.log(map);
+// console.log(map.get(shops[0]));
+// console.log(map.has(shops[0]));
+// map.delete(key);
+// map.clear();
+// map.size;
+//map.keys();
+// const goods = [];
+// for (let shop of map.keys()) {
+//   goods.push(Object.keys(shop)[0]);
+//   console.log(shop);
+// }
+// console.log(map.keys());
+// console.log(goods);
+//
+// for (let price of map.values()) {
+//   console.log(price);
+// }
+//
+// for (let price of map.entries()) {
+//   console.log(price);
+// }
+//
+// for (let [price, shop] of map.entries()) {
+//   console.log(price, shop);
+// }
+//
+// map.forEach((value, key, map) => {
+//   console.log(value, key);
+// });
+//
