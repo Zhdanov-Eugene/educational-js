@@ -556,20 +556,20 @@
 //map
 //map
 //map
-const user = {
-  name: "Alex",
-  surname: "Smith",
-  birtday: "20/04/1993",
-  showMyPublicData: function () {
-    console.log(`${this.name} ${this.surname}`);
-  },
-};
-console.log(user);
-const userMap = new Map(Object.entries(user));
-console.log(userMap);
+// const user = {
+//   name: "Alex",
+//   surname: "Smith",
+//   birtday: "20/04/1993",
+//   showMyPublicData: function () {
+//     console.log(`${this.name} ${this.surname}`);
+//   },
+// };
+// console.log(user);
+// const userMap = new Map(Object.entries(user));
+// console.log(userMap);
 
-const newUserObj = Object.fromEntries(userMap);
-console.log(newUserObj);
+// const newUserObj = Object.fromEntries(userMap);
+// console.log(newUserObj);
 //
 // const user1 = {
 //   4: "Alex",
@@ -609,13 +609,13 @@ console.log(newUserObj);
 // console.log(map);
 //
 
-const shops = [{ rice: 500 }, { oil: 200 }, { bread: 50 }];
-const budget = [5000, 15000, 25000];
-const map = new Map([[{ paper: 400 }, 8000]]);
-shops.forEach((shop, i) => {
-  map.set(shop, budget[i]);
-});
-console.log(map);
+// const shops = [{ rice: 500 }, { oil: 200 }, { bread: 50 }];
+// const budget = [5000, 15000, 25000];
+// const map = new Map([[{ paper: 400 }, 8000]]);
+// shops.forEach((shop, i) => {
+//   map.set(shop, budget[i]);
+// });
+// console.log(map);
 // console.log(map.get(shops[0]));
 // console.log(map.has(shops[0]));
 // map.delete(key);
@@ -646,3 +646,55 @@ console.log(map);
 //   console.log(value, key);
 // });
 //
+//set
+//set
+//set
+//set
+//set
+
+// const arr = [1, 2, 3, 4, 5, 6, 2, 5, 9, 9, 8, 7];
+// const set = new Set(arr);
+// console.log(arr, set);
+//
+// const arr = [
+//   "Alex",
+//   "Ivan",
+//   "Ivan",
+//   "Andrey",
+//   "Andrey",
+//   "Valentin",
+//   "Zina",
+//   "Vlad",
+// ];
+// const set = new Set(arr);
+// console.log(arr, set);
+//
+const arr = [
+  "Alex",
+  "Ivan",
+  "Ivan",
+  "Andrey",
+  "Andrey",
+  "Valentin",
+  "Zina",
+  "Vlad",
+];
+const set = new Set(arr);
+set.add("Olga").add("Valentin");
+console.log(arr, set);
+//
+// set.delete(value);
+// set.has(value);
+// set.clear();
+// set.size;
+// for (let value of set) console.log(value);
+// set.forEach((value, valueAgain, set) => {
+//   console.log(value, valueAgain);
+// });
+//
+// console.log(set.values());
+// console.log(set.keys());
+// console.log(set.entries());
+function unique(arr) {
+  return Array.from(new Set(arr));
+}
