@@ -353,12 +353,12 @@ P.S. Функции вызывать не обязательно */
 // const oneHeart = document.querySelector(".heart");
 // console.log(oneHeart);
 
-const box = document.getElementById("box"),
-  btns = document.getElementsByTagName("button"),
-  circles = document.getElementsByClassName("circle"),
-  wrapper = document.querySelector(".wrapper"),
-  hearts = wrapper.querySelectorAll(".heart"),
-  oneHeart = wrapper.querySelector(".heart");
+// const box = document.getElementById("box"),
+//   btns = document.getElementsByTagName("button"),
+//   circles = document.getElementsByClassName("circle"),
+//   wrapper = document.querySelector(".wrapper"),
+//   hearts = wrapper.querySelectorAll(".heart"),
+//   oneHeart = wrapper.querySelector(".heart");
 // // console.dir(box);
 // const num = "1000px";
 // box.style.backgroundColor = "blue";
@@ -719,93 +719,93 @@ P.S. Здесь есть несколько вариантов решения з
 5) 
 Фильмы должны быть отсортированы по алфавиту */
 //ОБЕРТАЄМО  ввесь скрипт для того щоб дочекатися повної загркзки дом-дерева(html) і потім начинають загружатися скрипти.
-document.addEventListener("DOMContentLoaded", () => {
-  const movieDB = {
-    movies: [
-      "Логан",
-      "Лига справедливости",
-      "Ла-ла лэнд",
-      "Одержимость",
-      "Трансформери",
-      "Джуманджи",
-      "Аврора",
-      "Фиана и Шрек",
-      "Скотт Пилигрим против...",
-    ],
-  };
+// document.addEventListener("DOMContentLoaded", () => {
+//   const movieDB = {
+//     movies: [
+//       "Логан",
+//       "Лига справедливости",
+//       "Ла-ла лэнд",
+//       "Одержимость",
+//       "Трансформери",
+//       "Джуманджи",
+//       "Аврора",
+//       "Фиана и Шрек",
+//       "Скотт Пилигрим против...",
+//     ],
+//   };
 
-  const advImg = document.querySelectorAll(".promo__adv img"),
-    genre = document.querySelector(".promo__genre"),
-    bg = document.querySelector(".promo__bg"),
-    movieList = document.querySelector(".promo__interactive-list"),
-    addForm = document.querySelector("form.add"),
-    addInput = addForm.querySelector(".adding__input"),
-    checkbox = addForm.querySelector("[type='checkbox']");
+//   const advImg = document.querySelectorAll(".promo__adv img"),
+//     genre = document.querySelector(".promo__genre"),
+//     bg = document.querySelector(".promo__bg"),
+//     movieList = document.querySelector(".promo__interactive-list"),
+//     addForm = document.querySelector("form.add"),
+//     addInput = addForm.querySelector(".adding__input"),
+//     checkbox = addForm.querySelector("[type='checkbox']");
 
-  addForm.addEventListener("submit", (event) => {
-    event.preventDefault(); //отменяэм стандартное поведение браузера тоесть перезагрузку страници
+//   addForm.addEventListener("submit", (event) => {
+//     event.preventDefault(); //отменяэм стандартное поведение браузера тоесть перезагрузку страници
 
-    let newFilm = addInput.value; //добавляєм новий фильм через переменная newFilm + addInput - обращаэмся к инпуту чтоб проверить взаэмодействовал ли пользователь с ним тем самим проверяя значение value(отображаєтся то что ввел пользователь);
-    const favorite = checkbox.checked; //либо отмечена либо нет.checked(true or false).
+//     let newFilm = addInput.value; //добавляєм новий фильм через переменная newFilm + addInput - обращаэмся к инпуту чтоб проверить взаэмодействовал ли пользователь с ним тем самим проверяя значение value(отображаєтся то что ввел пользователь);
+//     const favorite = checkbox.checked; //либо отмечена либо нет.checked(true or false).
 
-    if (newFilm) {
-      if (newFilm.length > 21) {
-        newFilm = `${newFilm.substring(0, 22)}...`;
-      }
+//     if (newFilm) {
+//       if (newFilm.length > 21) {
+//         newFilm = `${newFilm.substring(0, 22)}...`;
+//       }
 
-      if (favorite) {
-        console.log("Добавляем любимый фильм");
-      }
+//       if (favorite) {
+//         console.log("Добавляем любимый фильм");
+//       }
 
-      movieDB.movies.push(newFilm); //добавляэм новий фильм в базу данних(бд+свойство(мувис) и  сюда методом пуш добавляэм новий фильм(newFilm))
-      sortArr(movieDB.movies); //функция сортировки(movieDB.movies) сортируэм /где\ и /что\
+//       movieDB.movies.push(newFilm); //добавляэм новий фильм в базу данних(бд+свойство(мувис) и  сюда методом пуш добавляэм новий фильм(newFilm))
+//       sortArr(movieDB.movies); //функция сортировки(movieDB.movies) сортируэм /где\ и /что\
 
-      createMoviesList(movieDB.movies, movieList); //создание нових елементов на страничке
-    }
-    event.target.reset(); //очистить форму(инпут)
-  });
+//       createMoviesList(movieDB.movies, movieList); //создание нових елементов на страничке
+//     }
+//     event.target.reset(); //очистить форму(инпут)
+//   });
 
-  //использовать такой синтаксис
-  const deleteAdv = (arr) => {
-    arr.forEach((item) => {
-      item.remove();
-    });
-  };
+//   //использовать такой синтаксис
+//   const deleteAdv = (arr) => {
+//     arr.forEach((item) => {
+//       item.remove();
+//     });
+//   };
 
-  const makeChanges = (g, b) => {
-    g.textContent = "драма";
-    b.style.backgroundImage = "url('../img/bg.jpg')";
-  };
+//   const makeChanges = (g, b) => {
+//     g.textContent = "драма";
+//     b.style.backgroundImage = "url('../img/bg.jpg')";
+//   };
 
-  const sortArr = (arr) => {
-    arr.sort();
-  };
+//   const sortArr = (arr) => {
+//     arr.sort();
+//   };
 
-  //перебор фильмов и вистроение по порядку + номер
-  function createMoviesList(films, parent) {
-    parent.innerHTML = ""; //парент делаєт  функцию независимой(ul)
-    sortArr(films); //функция сортировки(movieDB.movies) сортируэм /где\ и /что\
+//   //перебор фильмов и вистроение по порядку + номер
+//   function createMoviesList(films, parent) {
+//     parent.innerHTML = ""; //парент делаєт  функцию независимой(ul)
+//     sortArr(films); //функция сортировки(movieDB.movies) сортируэм /где\ и /что\
 
-    films.forEach((film, i) => {
-      parent.innerHTML += `
-        <li class="promo__interactive-item">${i + 1} ${film}
-            <div class="delete"></div>
-        </li>
-    `;
-    });
+//     films.forEach((film, i) => {
+//       parent.innerHTML += `
+//         <li class="promo__interactive-item">${i + 1} ${film}
+//             <div class="delete"></div>
+//         </li>
+//     `;
+//     });
 
-    document.querySelectorAll(".delete").forEach((btn, i) => {
-      btn.addEventListener("click", () => {
-        btn.parentElement.remove();
-        movieDB.movies.splice(i, 1);
+//     document.querySelectorAll(".delete").forEach((btn, i) => {
+//       btn.addEventListener("click", () => {
+//         btn.parentElement.remove();
+//         movieDB.movies.splice(i, 1);
 
-        createMoviesList(films, parent);
-      });
-    });
-  }
+//         createMoviesList(films, parent);
+//       });
+//     });
+//   }
 
-  //визов свех функций
-  deleteAdv(advImg); //помещаем то что нужно удалить с помощью функции deleteAdv
-  makeChanges(genre, bg);
-  createMoviesList(movieDB.movies, movieList); //передаем первий аргумент(фильми которие перебираются) и то куда ми будем помещать фильми(список)
-});
+//   //визов свех функций
+//   deleteAdv(advImg); //помещаем то что нужно удалить с помощью функции deleteAdv
+//   makeChanges(genre, bg);
+//   createMoviesList(movieDB.movies, movieList); //передаем первий аргумент(фильми которие перебираются) и то куда ми будем помещать фильми(список)
+// });
