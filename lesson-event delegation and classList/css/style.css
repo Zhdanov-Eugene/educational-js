@@ -1,0 +1,32 @@
+button {
+    width: 80px;
+    height: 30px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+#first {
+    background: orange;
+    padding: 30px;
+}
+
+.blue {
+    background-color: blue;
+    width: 100px;
+    height: 40px;
+}
+
+.primo {
+    background: yellow;
+}
+.green {
+    background: green;
+}
+.red {
+    background: red;
+}
