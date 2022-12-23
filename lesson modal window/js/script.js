@@ -163,12 +163,13 @@ window.addEventListener("DOMContentLoaded", () => {
   //
 
   class MenuCard {
-    constructor(src, alt, title, descr, price, parrentSelector) {
+    constructor(src, alt, title, descr, price, parrentSelector, ...classes) {
       this.src = src;
       this.alt = alt;
       this.title = title;
       this.descr = descr;
       this.price = price;
+      this.classes = classes;
       this.transfer = 27;
       this.parrent = document.querySelector(parrentSelector);
       this.changeToUAN();
@@ -178,8 +179,13 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     render() {
       const element = document.createElement("div");
+      if (this.classes.length === 0) {
+        this.element = "menu__item";
+        element.classList.add(this.element);
+      } else {
+        this.classes.forEach((className) => element.classList.add(className));
+      }
       element.innerHTML = `
-        <div class="menu__item">
             <img src=${this.src} alt=${this.alt} />
             <h3 class="menu__item-subtitle">${this.title}</h3>
             <div class="menu__item-descr">${this.descr}</div>
@@ -188,7 +194,6 @@ window.addEventListener("DOMContentLoaded", () => {
               <div class="menu__item-cost">Цена:</div>
               <div class="menu__item-total"><span> ${this.price}</span> грн/день</div>
             </div>
-          </div>
       `;
       this.parrent.append(element);
     }
@@ -221,3 +226,21 @@ window.addEventListener("DOMContentLoaded", () => {
     ".menu .container"
   ).render();
 });
+//
+//
+//
+//rest operator
+//
+//
+// const log = function (a, b, ...rest) {
+//   console.log(a, b, rest);
+// };
+// log("basic", "rest", "operator", "use");
+// function calcOrDouble(number, basis = 2) {
+//   // basis = basis || 2;
+//   console.log(number * basis);
+// }
+// calcOrDouble(3, 5);
+// calcOrDouble(3);
+//
+//
