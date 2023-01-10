@@ -237,32 +237,43 @@ window.addEventListener("DOMContentLoaded", function () {
       //form.appen(statusMessage);
       form.insertAdjacentElement("afterend", statusMessage);
 
-      const request = new XMLHttpRequest();
-      request.open("POST", "server.php");
-      request.setRequestHeader(
-        "Content-type",
-        "application/json; charset=utf-8"
-      );
       const formData = new FormData(form);
 
       const object = {};
       formData.forEach(function (value, key) {
         object[key] = value;
       });
-      const json = JSON.stringify(object);
 
-      request.send(json);
-
-      request.addEventListener("load", () => {
-        if (request.status === 200) {
-          console.log(request.response);
+      fetch("server.php", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(object),
+      })
+        .then((data) => data.text())
+        .then((data) => {
+          console.log(data);
           showThankModal(message.success);
           statusMessage.remove();
-          form.reset();
-        } else {
+        })
+        .catch(() => {
           showThankModal(message.failure);
-        }
-      });
+        })
+        .finally(() => {
+          form.reset();
+        });
+
+      // request.addEventListener("load", () => {
+      //   if (request.status === 200) {
+      //     console.log(request.response);
+      //     showThankModal(message.success);
+      //     statusMessage.remove();
+      //     form.reset();
+      //   } else {
+      //     showThankModal(message.failure);
+      //   }
+      // });
     });
   }
 
@@ -286,4 +297,18 @@ window.addEventListener("DOMContentLoaded", function () {
       closeModal();
     }, 4000);
   }
+
+  // API
+  // DOM API
+
+  // fetch("https://jsonplaceholder.typicode.com/posts", {
+  //   method: "POST",
+  //   body: JSON.stringify({ name: "Alex" }),
+  //   headers: {
+  //     "Content-type": "application/json",
+  //   },
+  // })
+  //   .then((response) => response.json())
+  //   .then((json) => console.log(json));
 });
+//FILTER
