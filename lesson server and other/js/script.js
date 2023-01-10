@@ -311,4 +311,3 @@ window.addEventListener("DOMContentLoaded", function () {
   //   .then((response) => response.json())
   //   .then((json) => console.log(json));
 });
-//FILTER
