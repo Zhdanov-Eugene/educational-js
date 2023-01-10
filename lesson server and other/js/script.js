@@ -244,7 +244,7 @@ window.addEventListener("DOMContentLoaded", function () {
         object[key] = value;
       });
 
-      fetch("server.php", {
+      fetch("../server.php", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -298,16 +298,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }, 4000);
   }
 
-  // API
-  // DOM API
-
-  // fetch("https://jsonplaceholder.typicode.com/posts", {
-  //   method: "POST",
-  //   body: JSON.stringify({ name: "Alex" }),
-  //   headers: {
-  //     "Content-type": "application/json",
-  //   },
-  // })
-  //   .then((response) => response.json())
-  //   .then((json) => console.log(json));
+  this.fetch(" http://localhost:3000/menu")
+    .then((data) => data.json())
+    .then((res) => console.log(res));
 });
