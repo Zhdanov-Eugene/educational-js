@@ -203,7 +203,7 @@ window.addEventListener("DOMContentLoaded", function () {
       ).render();
     });
   });
-  //variant-2
+  // //variant-2
   // getResource("http://localhost:3000/menu").then((data) => createCard(data));
   // function createCard(data) {
   //   data.forEach(({ img, altimg, title, descr, price }) => {
@@ -222,6 +222,19 @@ window.addEventListener("DOMContentLoaded", function () {
   //     document.querySelector(".menu .container").append(element);
   //   });
   // }
+  //variant-3
+  // axios.get("http://localhost:3000/menu").then((data) => {
+  //   data.data.forEach(({ img, altimg, title, descr, price }) => {
+  //     new MenuCard(
+  //       img,
+  //       altimg,
+  //       title,
+  //       descr,
+  //       price,
+  //       ".menu .container"
+  //     ).render();
+  //   });
+  // });
   // Forms
   // Forms
   // Forms
