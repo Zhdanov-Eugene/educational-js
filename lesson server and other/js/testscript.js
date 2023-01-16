@@ -48,13 +48,53 @@
 // const newArr = Object.entries(obj);
 // console.log(newArr);
 //
-const obj = {
-  ivan: "persone",
-  anna: "persone",
-  dog: "animal",
-  cat: "animal",
-};
-const newArr = Object.entries(obj)
-  .filter((item) => item[1] === "persone")
-  .map((item) => item[0]);
-console.log(newArr);
+// const obj = {
+//   ivan: "persone",
+//   anna: "persone",
+//   dog: "animal",
+//   cat: "animal",
+// };
+// const newArr = Object.entries(obj)
+//   .filter((item) => item[1] === "persone")
+//   .map((item) => item[0]);
+// console.log(newArr);
+///
+//
+// //
+// new RegExp('pattern', 'flag');
+// /pattern/flag
+//
+// const ans = prompt("введите ваше имя");
+// const ans = prompt("введите ваше число");
+//const req = /n/;
+//const req = /n/gi; //n - то что ми ищем
+//const req = /\d/;
+// const req = /\d/g;
+//const req = /n/i;
+//const req = /n/g;
+//const req = /n/m;
+//const req = /n/igm;
+//const req = /n/ig;
+//console.log(ans.search(req));
+//console.log(ans.match(req));
+//console.log(req.test(ans));
+// console.log(ans.match(req)); ///\d g
+//classes
+//\d
+//\w
+//\s
+//
+// const pass = prompt("password");
+// console.log(pass.replace(/./g, "*"));
+// console.log(pass.replace(/\./g, "*")); //екранирование
+///
+// console.log("12-56-34".replace(/-/g, ":"));
+//
+// const str = "my name r2d2";
+// console.log(str.match(/\w\d\w\d/i));
+//\D
+//\W
+// const str = "my name r2d2";
+// console.log(str.match(/\W/i));
+// console.log(str.match(/\W/gi));
+// console.log(str.match(/\D/gi));
