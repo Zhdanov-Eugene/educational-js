@@ -113,3 +113,50 @@
 // };
 // console.log((persone.userAge = 30));
 // console.log(persone.userAge);
+//
+//
+//инкапсуляция
+//
+class User {
+  constructor(name, age) {
+    this.name = name;
+    this._age = age;
+  }
+
+  #surname = "svativertu";
+
+  say = () => {
+    console.log(
+      `имя пользователя: ${this.name}${this.#surname}, возраст ${this._age}`
+    );
+  };
+
+  get age() {
+    return this._age;
+  }
+
+  set age(age) {
+    //_age = age;
+    if (typeof age === "number" && age > 0 && age < 110) {
+      this._age = age;
+    } else {
+      console.log("Error");
+    }
+  }
+}
+
+const ivan = new User("Ivan", 28);
+console.log(ivan.name);
+console.log(ivan.age);
+ivan.age = 99;
+console.log(ivan.age);
+// console.log(ivan.getAge());
+
+// ivan.setAge(33);
+// ivan.setAge(330);
+// console.log(ivan.getAge());
+// ivan.say();
+
+// ivan._age = 30;
+// ivan.name = "alex";
+ivan.say();
