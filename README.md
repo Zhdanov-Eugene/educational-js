@@ -89,3 +89,5 @@ https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Rest_pa
 
 019 -
 https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Default_parameters
+
+npx json-server db.json
